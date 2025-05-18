@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 
-class die {
+class Die {
 public: 
     int roll ();
 

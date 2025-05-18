@@ -3,7 +3,7 @@
 
 
 
-int die::roll() {
+int Die::roll() {
 
     static bool seeded = false;
     if (!seeded) {
