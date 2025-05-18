@@ -1,5 +1,6 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
+#include "shooter.h"
 #include "roll.h"
 #include "die.h"
 
@@ -7,6 +8,19 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("ttesting shooter returning a value 2 to 12 10 times"){
+	Die die1;
+	Die die2;
+	Shooter shooter;
+
+	for (int i=0; i<10; ++i) {
+		Roll* roll = shooter.throw_dice(die1, die2);
+		REQUIRE(roll != nullptr);
+		REQUIRE(roll->roll_value() >= 2);
+		REQUIRE(roll->roll_value() <= 12);
+	}
+}
+/*
 TEST_CASE("testing roll class returning a value 2 to 12 10 times"){
 	Die die1;
 	Die die2;
@@ -19,7 +33,7 @@ TEST_CASE("testing roll class returning a value 2 to 12 10 times"){
 		REQUIRE(value <= 12);
 	}
 }
-/*
+
 TEST_CASE (" Die rolls return a value from 1 to 6") {
 	Die die;
 	for (int i=0; i<10; ++i) {
